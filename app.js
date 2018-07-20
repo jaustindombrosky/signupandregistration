@@ -5,6 +5,18 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose')
 
+//when deployed change the localhost
+var dbUrl = 'mongodb://localhost/profile-signup'
+mongoose.connect(dbUrl, function(err, res){
+  if (err){
+    console.log('DB connection failed')
+  }
+  else {
+    console.log('DB connection succeeded')
+
+  }
+})
+
 var routes = require('./routes/index');
 var api = require('./routes/api');
 
